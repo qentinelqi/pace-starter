@@ -37,7 +37,7 @@ Continue shopping
     GoTo                https://qentinelqi.github.io/shop/
     ClickText           Gavin the Tiger
     VerifyText          His favorite meal is chickpea salad with a lemon juice dressing.
-    VerifyText  	    $9.00
+    VerifyText          $9.00
     ClickText           Add to cart
 
 Proceed to checkout
