@@ -15,16 +15,17 @@ Test the home page      # This is the name of your test case
 
 # The above is the most basic test, which just goes to a web page and verifies if a line of text exists or not.
 
-# Here are more tests, that navigate aroud the website, fills up a form, and proceeds with the checkout process.
+# Here are more tests, which check our navigation menu, and then adds items to the shopping card.
 Check the navigation menu items
     [Documentation]     Go to the shop homepage and verify text.
     GoTo                https://qentinelqi.github.io/shop/
-    VerifyText          Products              
-    VerifyText          Our Story              
-    VerifyText          Contact              
+    VerifyText          Products
+    VerifyText          Our Story
+    VerifyText          Contact
 
 Shop for products
     [Documentation]     Select a product, verify details on the page, add it to the cart and continue shopping.
+    GoTo                https://qentinelqi.github.io/shop/
     ClickText           Sacha the Deer
     VerifyText          Slim Fit, 5oz 100% Cotton T-Shirt.
     ClickText           Add to cart
@@ -39,31 +40,5 @@ Continue shopping
     VerifyText          His favorite meal is chickpea salad with a lemon juice dressing.
     VerifyText          $9.00
     ClickText           Add to cart
-
-Proceed to checkout
-    [Documentation]     Proceed with the checkout process.
-    ClickText           Checkout
-    VerifyText          Billing
-    VerifyText          Order summary
-    # We now proceed with filling up the form.
-    ClickText           I don't see my address
-    TypeText            Full name                Pekka Suomalainen 
-    TypeText            Email                    noreply@qentinel.fi
-    TypeText            Street address           Joulumaantie 1
-    TypeText            City                     Rovaniemi
-    ClickText           Country
-    ClickText           Canada
-    ClickText           Province/State
-    TypeText            Yukon
-    TypeText            Postal/ZIP code          99999
-    ClickText           Continue to payment
-
-Proceed with payment
-    [Documentation]     Fill up the payment form with the card details
-    VerifyText          Credit card
-    TypeText            Card number         4242 4242 4242 4242     # This is test credit card on Stripe.
-    TypeText            MM/YY               10/30
-    TypeText            CVV                 424
-    ClickText           Place order
-    VerifyText          Processing payment
-    
+    ClickText           Continue shopping
+    VerifyText          Fur, Inc.           # Check if we've exited the "cart" by looking for text in the footer.
