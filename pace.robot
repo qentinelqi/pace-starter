@@ -15,7 +15,7 @@ Test the home page      # This is the name of your test case
 
 # The above is the most basic test, which just goes to a web page and verifies if a line of text exists or not.
 
-# Here are more tests, which check our navigation menu, and then adds items to the shopping card.
+# Here are more tests, which check our navigation menu, and then adds items to the shopping cart.
 Check the navigation menu items
     [Documentation]     Go to the shop homepage and verify text.
     GoTo                https://qentinelqi.github.io/shop/
