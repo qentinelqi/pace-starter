@@ -1,43 +1,43 @@
 # Tip 1: Everything that starts with # is a guidance for you and will not get executed.
 
 *** Settings ***
-Documentation           Test suites for Pace starter.
+
+Documentation           Test suite for Pace starter.
 Library                 QWeb
 Suite Setup             Open Browser    about:blank    chrome
 Suite Teardown          Close All Browsers
 
-# Tip 2: Settings are where you define suite level configuration.
-#        Suite setup and teardown are actions that happen before and after a suite run.
-#        For first time users, we don't recommend to change them. 
-#        You may change chrome to firefox should you wish to test your application on firefox.
+# Tip 2: The Settings section is where you define test suite level configuration.
+#        Suite Setup and Teardown are actions that happen before and after a test suite run.
+#        For first time users, we don't recommend to change them.
+#        You may change chrome to firefox should you wish to test your application on Firefox.
 
 *** Test Cases ***
 
-# Tip 3: Test cases start from under *** Test Cases ***
-#        The structure of a test case is as follows: 
+# Tip 3: Test cases start from here. The structure of a test case is as follows:
 #        Name of the test
-#             Documentation   A short explanation of the test.
-#             Test steps
+#            [Documentation]    A short explanation of the test.
+#            Test steps
 
-Test the home page      
-    [Documentation]     Go to the shop webshop's homepage and verify text. This is the document for this text. 
-    ...                 The document continues. 
+Test the home page
+    [Documentation]     Go to the shop homepage and verify text.
     GoTo                https://qentinelqi.github.io/shop/          # Tip 4: You can change this URL to test any other website.
     VerifyText          Find your spirit animal                     # Tip 5: Verify that the page contains the given text.
 
-# Tip 6: Please note that a test starts on a new line.
-#        Every test step starts with an indent of minimum two spaces. A tab is recommended.
-#        A tab or minimum of two spaces is necessary between a PaceWord and its argument, and between two arguments.
+# Tip 6: Please note that the test case name starts at the beginning of the line.
+#        Every test step starts with an indent of minimum two spaces.
+#        Two or more spaces are also necessary between a PaceWord and its argument, and between two arguments.
 
 Check the navigation menu items
-    [Documentation]     Go to the shop homepage and verify text.
+    [Documentation]     Go to the shop homepage and verify the menu items.
     GoTo                https://qentinelqi.github.io/shop/
     VerifyText          Products
     VerifyText          Our Story
     VerifyText          Contact
 
 Shop for products
-    [Documentation]     Select a product, verify details on the page, add it to the cart and continue shopping.
+    [Documentation]     Select a product, verify details on the page,
+    ...                 add the product to the cart and continue shopping.
     GoTo                https://qentinelqi.github.io/shop/
     ClickText           Sacha the Deer
     VerifyText          Slim Fit, 5oz 100% Cotton T-Shirt.
@@ -46,15 +46,11 @@ Shop for products
     VerifyText          Sacha the Deer
     ClickText           Continue shopping
 
-# Pro Tip 1: You could define initital states for your application. We call them AppState. That is the pro way to start your test.
-#            An initial state is the state of your application before a test execution begins.
-#            In the given tests, we are navigating to https://qentinelqi.github.io/shop/ as an initial application state. 
-#            We could also do it by defining a keyword as in the last test case:
-# Home
-#    Goto        https://qentinelqi.github.io/shop/
-# And instead of 'GoTo                https://qentinelqi.github.io/shop/' in the test cases we could use
-# AppState      Home
-# This is a very simple example, we could define as many AppStates as we wish.
+# Pro Tip 1: Make sure that when each test case starts, your application is in a well-defined initial state.
+#            The test cases above use GoTo with a fixed URL to set the initial application state, but it is
+#            conventional to start each test case with the dedicated AppState PaceWord. The test case below
+#            starts with AppState Home, where Home is an initial state defined in the Keywords section at
+#            the end of the file. More initial states could be defined as needed.
 
 Continue shopping
     [Documentation]     Add a second product to the cart.
@@ -65,11 +61,12 @@ Continue shopping
     ClickText           Add to cart
     ClickText           Continue shopping
     VerifyText          Fur, Inc.           # Check if we've exited the "cart" by looking for text in the footer.
-    
+
 *** Keywords ***
 
-Home 
-    Goto        https://qentinelqi.github.io/shop/
+Home
+    [Documentation]     Set the application state to the shop home page.
+    GoTo                https://qentinelqi.github.io/shop/
 
-# Pro Tip 2: You could combine PaceWords to make your own PaceWord. Keywords are defined under ***Keywords ***.
-#            The pro way is to define them in a separate file and import that file under settings.  
+# Pro Tip 2: In this Keywords section, you could combine PaceWords to make your own keywords using the structure
+#            shown above. The pro way is to define them in a separate file and import that file under Settings.
