@@ -24,7 +24,7 @@ Suite Teardown          Close All Browsers
 
 Test the home page
     [Documentation]     Go to the web shop, and verify that the slogan text appears on the page.
-    GoTo                https://qentinelqi.github.io/shop/          
+    GoTo                https://qentinelqi.github.io/shop/
     VerifyText          Find your spirit animal
 
 Check the navigation menu items
