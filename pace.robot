@@ -45,11 +45,12 @@ Shop for products
     VerifyText          Sacha the Deer
     ClickText           Continue shopping
 
-# Pro Tip: Make sure that when each test case starts, your application is in a well-defined initial state.
-#          The test cases above use GoTo with a fixed URL to set the initial application state, but we
-#          recommend starting each test case with the dedicated AppState PaceWord. The test case below
-#          starts with AppState Home, where Home is an initial state defined in the Keywords section at
-#          the end of the file. More initial states could be defined as needed.
+# Pro Tip: Make sure that when each test case starts, your application is in a well-defined
+#          initial state. The test cases above use GoTo with a fixed URL to set the initial
+#          application state, but we recommend starting each test case with the dedicated
+#          AppState PaceWord. The test case below starts with AppState Home, where Home is an
+#          initial state defined in the Keywords section at the end of the file. More initial
+#          states could be defined as needed.
 
 Continue shopping
     [Documentation]     Add a second product to the cart.
@@ -59,7 +60,8 @@ Continue shopping
     VerifyText          $9.00
     ClickText           Add to cart
     ClickText           Continue shopping
-    VerifyText          Fur, Inc.           # Check if we've exited the "cart" by looking for text in the footer.
+    # Check if we've exited the "cart" by looking for text in the footer.
+    VerifyText          Fur, Inc.
 
 *** Keywords ***
 
@@ -67,5 +69,6 @@ Home
     [Documentation]     Set the application state to the shop home page.
     GoTo                https://qentinelqi.github.io/shop/
 
-# Pro Tip: In this Keywords section, you could combine PaceWords to make your own keywords using the structure
-#          shown above. The pro way is to define them in a separate file and import that file under Settings.
+# Pro Tip: In this Keywords section, you could combine PaceWords to make your own keywords using
+#          the structure shown above. The pro way is to define them in a separate file and import
+#          that file under Settings.
